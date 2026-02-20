@@ -1,0 +1,23 @@
+# Segurança: Variáveis de ambiente com sua chave OpenAI
+.env
+.env.*
+!.env.example
+
+# Ambiente Virtual e Cache (Lixo de execução)
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Configurações de IDE e Streamlit
+.vscode/
+.idea/
+.streamlit/config.toml
+!.streamlit/secrets.toml.example
+
+# Distribuição e Build
+dist/
+build/
