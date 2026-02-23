@@ -21,9 +21,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("🛡️ Análise Supervisionada de Ameaças")
-st.write("MVP para validação de modelagem de ameaças automática via IA - FIAP Software Security.")
+st.write("MVP para validação de modelagem de ameaças utilizando IA - Hackaton 5 -FIAP.")
 
-uploaded_file = st.file_uploader("Upload do Diagrama de Arquitetura", type=['png', 'jpg', 'jpeg'])
+uploaded_file = st.file_uploader("Faça o upload do Diagrama de Arquitetura", type=['png', 'jpg', 'jpeg'])
 
 if uploaded_file:
     img = Image.open(uploaded_file)
@@ -31,7 +31,7 @@ if uploaded_file:
     
     if st.button("🚀 Gerar Relatórios"):
         # Mensagem atualizada para refletir o uso da OpenAI
-        with st.spinner("O GPT-4o está analisando a arquitetura e gerando o relatório STRIDE..."):
+        with st.spinner("Analisando a arquitetura e gerando o relatório STRIDE..."):
             try:
                 # Instancia o serviço que configuramos com a API Key paga
                 service = OpenAIService() 
@@ -56,9 +56,3 @@ if uploaded_file:
             except Exception as e:
                 st.error(f"Erro crítico na aplicação: {str(e)}")
 
-# Rodapé informativo para os professores
-st.sidebar.markdown("---")
-st.sidebar.subheader("Entregáveis do Hackathon")
-st.sidebar.write("- Modelagem de ameaças (STRIDE)")
-st.sidebar.write("- Identificação de componentes")
-st.sidebar.write("- Sugestão de contramedidas")
