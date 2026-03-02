@@ -95,18 +95,20 @@ OPENAI_API_KEY = "sk-proj-sua-chave-api-aqui..."
 ---
 
 ## 📁 Estrutura de Diretórios
-
+```
 fiap_hackaton-5/
 ├── app/
 │   ├── main.py                # Entrypoint da interface Streamlit
 │   ├── services/
-│   │   └── openai_service.py  # Integração com OpenAI API
+│   │   └── openai_service.py  # Integração híbrida (Local/Nuvem) com OpenAI API
 │   └── prompts/
-│       └── security_prompts.py # Mega Prompt e regras Gatekeeper
-├── .env_example               # Template para variáveis de ambiente
-├── pyproject.toml             # Configuração de dependências
+│       └── security_prompts.py # Definição do Mega Prompt e regras Gatekeeper
+├── .env_example               # Template seguro para variáveis de ambiente
+├── .gitignore                 # Proteção de credenciais e cache
+├── pyproject.toml             # Configuração de dependências do Poetry
+├── poetry.lock                # Lock de versões garantindo reprodutibilidade
 └── README.md                  # Documentação do projeto
-
+```
 ---
 
 ## 🖼️ Exemplos de Uso
