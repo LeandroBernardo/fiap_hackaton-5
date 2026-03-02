@@ -44,9 +44,9 @@ Nossa ferramenta atua como um **Arquiteto de Segurança Cloud**. O usuário faz 
 ## 🧠 Arquitetura e Engenharia de Prompts
 O diferencial deste MVP está na robustez da engenharia aplicada ao modelo LLM:
 
-1. **Cloud Agnostic**: Os prompts foram desenhados para não dependerem de um provedor específico.
-2. **Gatekeeper Anti-Alucinação**: Implementamos uma barreira de validação heurística para fotos não relacionadas a arquitetura.
-3. **Mega Prompt Unificado**: Análise visual e STRIDE em uma única chamada de API.
+1. **Cloud Agnostic**: Os prompts foram desenhados para não dependerem de um provedor específico. A IA reconhece o "papel funcional" do componente.
+2. **Gatekeeper Anti-Alucinação**: Implementamos uma barreira de validação heurística. Se o usuário enviar um logotipo ou uma foto aleatória, o sistema aborta a análise.
+3. **Mega Prompt Unificado**: A análise da imagem e a modelagem STRIDE ocorrem em uma única chamada otimizada à API, reduzindo latência.
 
 ---
 
@@ -55,47 +55,64 @@ O diferencial deste MVP está na robustez da engenharia aplicada ao modelo LLM:
 - **Frontend**: Streamlit
 - **Motor de IA**: OpenAI GPT-4o-mini
 - **Gestão de Dependências**: Poetry
+- **Variáveis de Ambiente**: python-dotenv
 
 ---
 
 ## 🚀 Como Executar o Projeto
 
 ### Pré-requisitos
-- Python 3.13+ e Poetry instalados.
+- Python 3.13+ instalado.
+- Poetry instalado.
+- Uma chave de API da OpenAI.
 
 ### Passo a Passo (Execução Local)
 
-1. **Clone o repositório:**
+1. Clone o repositório:
    git clone https://github.com/LeandroBernardo/fiap_hackaton-5.git
    cd fiap_hackaton-5
 
-2. **Instale as dependências:**
+2. Instale as dependências via Poetry:
    poetry install
 
-3. **Configuração de Ambiente:**
-   Crie um arquivo .env na raiz com sua chave:
-   OPENAI_API_KEY=sk-proj-sua-chave-aqui
+3. Configuração de Ambiente:
+   Crie um arquivo .env na raiz do projeto e insira sua chave:
+   OPENAI_API_KEY=sk-proj-sua-chave-api-aqui...
 
-4. **Inicie a Aplicação:**
+4. Inicie a Aplicação:
    poetry run streamlit run app/main.py
+
+5. Acesse a Interface:
+   Abra o navegador em http://localhost:8501
 
 ---
 
 ## ☁️ Deploy em Produção (Streamlit Cloud)
-Configure em Settings > Secrets:
-OPENAI_API_KEY = "chave_no_pdf"
+A aplicação está preparada para rodar em nuvem. No painel do Streamlit Cloud, configure em Settings > Secrets:
+
+OPENAI_API_KEY = "sk-proj-sua-chave-api-aqui..."
 
 ---
 
 ## 📁 Estrutura de Diretórios
-```text
+
 fiap_hackaton-5/
 ├── app/
-│   ├── main.py                # Interface Streamlit
+│   ├── main.py                # Entrypoint da interface Streamlit
 │   ├── services/
-│   │   └── openai_service.py  # Integração com API
+│   │   └── openai_service.py  # Integração com OpenAI API
 │   └── prompts/
-│       └── security_prompts.py # Engenharia de Prompts
-├── .env_example               # Template de env
-├── pyproject.toml             # Configurações Poetry
-└── README.md                  # Documentação
+│       └── security_prompts.py # Mega Prompt e regras Gatekeeper
+├── .env_example               # Template para variáveis de ambiente
+├── pyproject.toml             # Configuração de dependências
+└── README.md                  # Documentação do projeto
+
+---
+
+## 🖼️ Exemplos de Uso
+- **Diagrama AWS Completo**: A aplicação mapeará VPCs, Load Balancers e instâncias, apontando riscos de tráfego.
+- **Diagrama Azure/GCP**: A aplicação adaptará a nomenclatura das contramedidas automaticamente.
+- **Teste de Gatekeeper**: Upload de fotos não relacionadas à arquitetura serão recusadas para evitar alucinações.
+
+> [!IMPORTANT]
+> Projeto desenvolvido para fins acadêmicos - FIAP Pós-Tech.
