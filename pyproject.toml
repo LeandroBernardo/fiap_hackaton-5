@@ -3,7 +3,8 @@ name = "fiap-hackaton-5"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Leandro Bernardo",email = "leandro.bernardos@gmail.com"}
+    {name = "Leandro Bernardo",email = "leandro.bernardos@gmail.com"},
+    {name = "Helen de Cassia dos Reis Cruz",email = "helen1705@hotmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.13"

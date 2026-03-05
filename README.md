@@ -1,5 +1,12 @@
 # 🛡️ FIAP Security - AI Threat Modeling (MVP)
 
+## Grupo 2 
+Leandro Bernardo dos Santos
+leandro.bernardos@gmail.com
+
+Helen de Cassia dos Reis Cruz
+helen1705@hotmail.com
+
 ![Python](https://img.shields.io/badge/python-3.13+-blue.svg)
 ![Streamlit](https://img.shields.io/badge/frontend-streamlit-red.svg)
 ![OpenAI](https://img.shields.io/badge/AI-GPT--4o--mini-green.svg)
